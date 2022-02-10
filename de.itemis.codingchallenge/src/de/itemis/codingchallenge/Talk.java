@@ -29,6 +29,7 @@ public class Talk {
 			if (duration.toLowerCase().equals(Duration.LIGHTENING.identifier)) {
 				return Duration.LIGHTENING.value;
 			} else {
+				duration = duration.replace("min", "");
 				return Integer.parseInt(duration);
 			}
 		}
