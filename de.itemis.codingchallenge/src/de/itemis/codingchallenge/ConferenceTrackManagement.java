@@ -26,10 +26,10 @@ public class ConferenceTrackManagement {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(args[0]));
 			ConferenceTrackGenerator ctg = new ConferenceTrackGenerator();
-			ctg.generator(reader);
-			System.out.println("Finish");
+			Conference conference = new Conference();
+			conference = ctg.generator(reader);
+			System.out.println(conference.toString());
 		} catch (IOException  e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
