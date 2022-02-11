@@ -16,4 +16,14 @@ public class Conference {
 
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		for (int i = 0; i < trackList.size(); i++) {
+			s.append("Track " + (i + 1) + ":" + "\n");
+			s.append(trackList.get(i).toString() + "\n");
+		}
+		return s.toString();
+	}
+
 }
