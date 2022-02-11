@@ -20,10 +20,10 @@ public class Conference {
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		for (int i = 0; i < trackList.size(); i++) {
-			s.append("Track " + (i + 1) + ":" + "\n");
-			s.append(trackList.get(i).toString() + "\n");
+			s.append("Track " + (i + 1) + ":" + System.getProperty("line.separator"));
+			s.append(trackList.get(i).toString() + System.getProperty("line.separator"));
 		}
-		return s.toString();
+		return s.toString().trim();
 	}
 
 }

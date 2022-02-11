@@ -83,9 +83,9 @@ public class Session {
 
 			}
 
-			s.append(talkStartTime + " " + talkList.get(i) + "\n");
+			s.append(talkStartTime + " " + talkList.get(i) + System.getProperty("line.separator"));
 		}
-		s.append(dateFormat.format(endEvent.getStartTime()) + " " + endEvent.getName() + "\n");
+		s.append(dateFormat.format(endEvent.getStartTime()) + " " + endEvent.getName() + System.getProperty("line.separator"));
 		return s.toString();
 	}
 }
