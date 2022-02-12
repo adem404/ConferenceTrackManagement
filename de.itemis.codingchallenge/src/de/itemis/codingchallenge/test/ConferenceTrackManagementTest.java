@@ -8,18 +8,21 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import org.junit.jupiter.api.Test;
 import de.itemis.codingchallenge.Conference;
 import de.itemis.codingchallenge.ConferenceTrackGenerator;
 
 class ConferenceTrackManagementTest {
 
+	/**
+	 * Test for given original_input.txt as argument and expecting
+	 * expected_output.txt
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	void testConferenceTrackManagement() throws IOException {
-
 		Path input = Path.of("resources/original_input.txt");
-
 		BufferedReader reader = new BufferedReader(new FileReader(input.toString()));
 		Conference conference = new ConferenceTrackGenerator().generator(reader);
 		Path conferenceOutputPath = Paths.get("resources/conference.txt");
@@ -28,5 +31,4 @@ class ConferenceTrackManagementTest {
 		long mismatch = Files.mismatch(conferenceOutputPath, expectedOutputPath);
 		assertTrue(mismatch == -1);
 	}
-
 }

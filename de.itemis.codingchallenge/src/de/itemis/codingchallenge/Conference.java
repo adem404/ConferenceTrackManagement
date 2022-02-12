@@ -2,6 +2,9 @@ package de.itemis.codingchallenge;
 
 import java.util.ArrayList;
 
+/**
+ * A Conference contains multiple Tracks
+ */
 public class Conference {
 
 	public ArrayList<Track> trackList;

@@ -2,6 +2,9 @@ package de.itemis.codingchallenge;
 
 import java.util.ArrayList;
 
+/**
+ * A Track describes a day of a Conference
+ */
 public class Track {
 
 	private ArrayList<Session> sessionList;
@@ -14,7 +17,7 @@ public class Track {
 	public void addSessionToTrack(Session session) {
 		sessionList.add(session);
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder s = new StringBuilder();

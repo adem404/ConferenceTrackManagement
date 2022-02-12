@@ -7,15 +7,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-
 /**
- * @author Ad
- *
+ * The ConferenceTrackManagement schedules multiple talks into the time
+ * constraints of a day.
+ * 
+ * @author Adem Dagdeviren
  */
 public class ConferenceTrackManagement {
 
 	/**
-	 * @param args
+	 * @param args path for text file with talks and their duration
 	 */
 	public static void main(String[] args) {
 		if (args.length < 1) {
@@ -29,11 +30,8 @@ public class ConferenceTrackManagement {
 			Conference conference = new Conference();
 			conference = ctg.generator(reader);
 			System.out.println(conference.toString());
-		} catch (IOException  e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-
 }
