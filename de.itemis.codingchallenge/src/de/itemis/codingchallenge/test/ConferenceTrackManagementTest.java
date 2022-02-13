@@ -16,19 +16,37 @@ class ConferenceTrackManagementTest {
 
 	/**
 	 * Test for given original_input.txt as argument and expecting
-	 * expected_output.txt
-	 * 
-	 * @throws IOException
+	 * expected_original_output.txt
 	 */
 	@Test
-	void testConferenceTrackManagement() throws IOException {
-		Path input = Path.of("resources/original_input.txt");
-		BufferedReader reader = new BufferedReader(new FileReader(input.toString()));
-		Conference conference = new ConferenceTrackGenerator().generator(reader);
-		Path conferenceOutputPath = Paths.get("resources/conference.txt");
-		Path expectedOutputPath = Paths.get("resources/expected_output.txt");
-		Files.writeString(conferenceOutputPath, conference.toString(), StandardCharsets.UTF_8);
-		long mismatch = Files.mismatch(conferenceOutputPath, expectedOutputPath);
-		assertTrue(mismatch == -1);
+	void testConferenceTrackManagementOriginalInput() {
+		testConferenceTrackManagement("resources/original_input.txt", "resources/expected_original_output.txt");
+	}
+
+	/**
+	 * Test for one Talk in less_input.txt as argument and expecting
+	 * expected_less_output.txt
+	 */
+	@Test
+	void testConferenceTrackManagementOneTalk() {
+		testConferenceTrackManagement("resources/less_input.txt", "resources/expected_less_output.txt");
+	}
+
+	private void testConferenceTrackManagement(String inputFile, String expectedOutputFile) {
+		Path input = Path.of(inputFile);
+		Path expectedOutputPath = Paths.get(expectedOutputFile);
+		BufferedReader reader;
+		Conference conference;
+		Path conferenceOutputPath;
+
+		try {
+			conferenceOutputPath = Files.createTempFile("conference", ".tmp");
+			reader = new BufferedReader(new FileReader(input.toString()));
+			conference = new ConferenceTrackGenerator().generator(reader);
+			Files.writeString(conferenceOutputPath, conference.toString(), StandardCharsets.UTF_8);
+			assertTrue(-1 == Files.mismatch(conferenceOutputPath, expectedOutputPath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
