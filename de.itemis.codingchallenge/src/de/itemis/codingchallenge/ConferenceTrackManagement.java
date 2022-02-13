@@ -27,8 +27,7 @@ public class ConferenceTrackManagement {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(args[0]));
 			ConferenceTrackGenerator ctg = new ConferenceTrackGenerator();
-			Conference conference = new Conference();
-			conference = ctg.generator(reader);
+			Conference conference = ctg.generator(reader);
 			System.out.println(conference);
 		} catch (IOException e) {
 			e.printStackTrace();
