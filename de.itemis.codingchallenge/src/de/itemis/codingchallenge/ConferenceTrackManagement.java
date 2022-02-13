@@ -29,7 +29,7 @@ public class ConferenceTrackManagement {
 			ConferenceTrackGenerator ctg = new ConferenceTrackGenerator();
 			Conference conference = new Conference();
 			conference = ctg.generator(reader);
-			System.out.println(conference.toString());
+			System.out.println(conference);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
