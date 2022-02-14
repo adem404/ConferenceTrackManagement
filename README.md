@@ -11,6 +11,20 @@ cd /path/to/project-root
 javac src/de/itemis/codingchallenge/*.java -d classes
 ```
 
+### Syntax of input_file.txt
+
+[Titel of a Talk] [duration in minutes]min | lightning 
+
+Example:
+```bash
+Accounting-Driven Development 45min
+Rails for Python Developers lightning
+A World Without HackerNews 30min
+.
+.
+.
+```
+
 ### How to Run the Program
 
 ```bash
